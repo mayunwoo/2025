@@ -3,7 +3,7 @@ import streamlit as st
 st.set_page_config(page_title="보건 웹앱", page_icon="🧑‍⚕️", layout="wide")
 
 # 앱 제목
-st.title("🧑‍⚕️ 보건 웹앱: 물리치료 & 작업치료")
+st.title("🧑‍⚕️ 물리치료 & 작업치료")
 st.write("남녀노소 누구나 쉽게 사용할 수 있는 **보건 교육 & 체험 앱**입니다.")
 st.write("👵👴 할머니, 할아버지도 편하게 보고, 학생들도 공부할 수 있도록 만들었어요!")
 
@@ -25,18 +25,14 @@ elif menu == "물리치료":
     st.header("💪 물리치료 (Physiotherapy)")
 
     st.subheader("📖 물리치료란?")
-    st.write("""
-    물리치료는 **통증을 줄이고 근육과 관절의 기능을 회복**시키며, **재활을 돕는 치료 방법**입니다.
-    운동, 전기 자극, 온열 요법 등이 사용됩니다.
-    """)
+    st.write("물리치료는 **통증을 줄이고 근육과 관절의 기능을 회복**시키며, **재활을 돕는 치료 방법**입니다. 🏃‍♀️")
 
-    st.subheader("✨ 물리치료의 주요 효과")
+    st.subheader("✨ 물리치료 효과")
     st.markdown("""
-    - ✅ **통증 감소**: 급성 및 만성 통증 완화
-    - ✅ **기능 회복**: 근력 및 관절 가동 범위 향상
-    - ✅ **재활 지원**: 수술 후 회복 촉진
-    - ✅ **부상 예방**: 운동 및 자세 교정을 통한 재발 방지
-    - ✅ **신경학적 증상 완화**: 뇌졸중, 파킨슨병 등 관련 증상 개선
+    - ✅ 통증 감소 (허리, 무릎, 어깨 등)
+    - ✅ 근육 강화 및 관절 기능 회복
+    - ✅ 수술 후 빠른 재활
+    - ✅ 올바른 자세 교정
     """)
 
     st.subheader("📝 간단 진단 (신체 기능 자가 평가)")
@@ -70,12 +66,8 @@ elif menu == "물리치료":
     - 🏥 **전문 치료 필요 시**: 온열 요법, 전기 자극치료, 초음파 치료 등
     """)
 
-    # 전문 사이트 버튼
-    st.markdown("""
-    <a href="https://www.healthline.com/health/benefits-of-physical-therapy" target="_blank">
-        <button style="padding:10px 20px; font-size:16px; background-color:#4CAF50; color:white; border:none; border-radius:5px;">전문 사이트 보기</button>
-    </a>
-    """, unsafe_allow_html=True)
+    st.subheader("📚 참고 자료")
+    st.write("물리치료에 대한 자세한 정보는 [대한물리치료사협회](https://www.kpta.or.kr/)에서 확인하실 수 있습니다.")
 
 # ------------------------------
 # 작업치료
@@ -84,17 +76,14 @@ elif menu == "작업치료":
     st.header("🎨 작업치료 (Occupational Therapy)")
 
     st.subheader("📖 작업치료란?")
-    st.write("""
-    작업치료는 **일상생활에 필요한 활동(옷 입기, 식사, 글쓰기 등)을 스스로 할 수 있도록 돕는 치료**입니다.
-    또한 인지 기능과 정신 건강 향상에도 도움을 줍니다.
-    """)
+    st.write("작업치료는 **일상생활에 필요한 활동(옷 입기, 식사, 글쓰기 등)을 스스로 할 수 있도록 돕는 치료**입니다. 🖐")
 
-    st.subheader("✨ 작업치료의 주요 효과")
+    st.subheader("✨ 작업치료 효과")
     st.markdown("""
-    - ✅ **일상생활 자립 능력 향상**: 옷 입기, 식사 등 기본 활동 수행 능력 개선
-    - ✅ **인지 기능 개선**: 기억력, 집중력 등 인지 능력 향상
-    - ✅ **손 기능 및 소근육 발달**: 손가락 스트레칭, 점토 반죽하기 등 훈련
-    - ✅ **정신적 안정과 사회적 참여 증가**: 감정 조절 및 사회적 상호작용 능력 향상
+    - ✅ 일상생활 자립 능력 향상 (옷 입기, 식사 등)
+    - ✅ 인지 기능(기억력, 집중력) 개선
+    - ✅ 손 기능 및 소근육 발달
+    - ✅ 정신적 안정과 사회적 참여 증가
     """)
 
     st.subheader("📝 간단 진단 (일상생활 수행능력 + 인지 기능)")
@@ -128,9 +117,5 @@ elif menu == "작업치료":
     - 🏥 **전문 치료 필요 시**: 인지 재활 프로그램, 감각-운동 통합 훈련, 맞춤형 보조도구 활용
     """)
 
-    # 전문 사이트 버튼
-    st.markdown("""
-    <a href="https://my.clevelandclinic.org/health/treatments/occupational-therapy" target="_blank">
-        <button style="padding:10px 20px; font-size:16px; background-color:#4CAF50; color:white; border:none; border-radius:5px;">전문 사이트 보기</button>
-    </a>
-    """, unsafe_allow_html=True)
+    st.subheader("📚 참고 자료")
+    st.write("작업치료에 대한 자세한 정보는 [한국작업치료사협회](https://www.kota.or.kr/)에서 확인하실 수 있습니다.")
