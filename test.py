@@ -2,6 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="보건 웹앱", page_icon="🧑‍⚕️", layout="wide")
 
+# 앱 제목
 st.title("🧑‍⚕️ 보건 웹앱: 물리치료 & 작업치료")
 st.write("남녀노소 누구나 쉽게 사용할 수 있는 **보건 교육 & 체험 앱**입니다.")
 st.write("👵👴 할머니, 할아버지도 편하게 보고, 학생들도 공부할 수 있도록 만들었어요!")
@@ -14,8 +15,7 @@ menu = st.sidebar.radio("메뉴 선택", ["홈", "물리치료", "작업치료"]
 # ------------------------------
 if menu == "홈":
     st.header("🏠 홈")
-    st.write("이 앱은 **물리치료와 작업치료**에 대해 배우고, 간단한 자가 진단과 치료 방법을 확인할 수 있습니다.")
-    st.image("images/home_icon.png", width=200)  # 로컬 이미지 사용
+    st.write("이 앱은 **물리치료와 작업치료**에 대해 배우고, 간단한 자가 진단과 치료 방법을 확인할 수 있도록 만든 앱입니다.")
     st.write("👉 왼쪽 메뉴에서 원하는 항목을 선택하세요!")
 
 # ------------------------------
@@ -25,10 +25,9 @@ elif menu == "물리치료":
     st.header("💪 물리치료 (Physiotherapy)")
 
     st.subheader("📖 물리치료란?")
-    st.write("물리치료는 통증을 줄이고 근육과 관절의 기능을 회복하며, 재활을 돕는 치료 방법입니다.")
-    st.image("images/physiotherapy_example.jpg", caption="물리치료 예시", use_column_width=True)  # 로컬 이미지
+    st.write("물리치료는 **통증을 줄이고 근육과 관절의 기능을 회복**시키며, **재활을 돕는 치료 방법**입니다. 🏃‍♀️")
 
-    st.subheader("📌 물리치료 효과")
+    st.subheader("✨ 물리치료 효과")
     st.markdown("""
     - ✅ 통증 감소 (허리, 무릎, 어깨 등)
     - ✅ 근육 강화 및 관절 기능 회복
@@ -67,8 +66,8 @@ elif menu == "물리치료":
     - 🏥 **전문 치료 필요 시**: 온열 요법, 전기 자극치료, 초음파 치료 등
     """)
 
-    st.subheader("🎬 물리치료 동영상 예시")
-    st.video("videos/physiotherapy_demo.mp4")  # 로컬 동영상
+    st.subheader("📚 참고 자료")
+    st.write("물리치료에 대한 자세한 정보는 [대한물리치료사협회](https://www.kpta.or.kr/)에서 확인하실 수 있습니다.")
 
 # ------------------------------
 # 작업치료
@@ -77,10 +76,9 @@ elif menu == "작업치료":
     st.header("🎨 작업치료 (Occupational Therapy)")
 
     st.subheader("📖 작업치료란?")
-    st.write("작업치료는 일상생활에 필요한 활동을 스스로 할 수 있도록 돕는 치료입니다.")
-    st.image("images/occupational_therapy_example.jpg", caption="작업치료 예시", use_column_width=True)  # 로컬 이미지
+    st.write("작업치료는 **일상생활에 필요한 활동(옷 입기, 식사, 글쓰기 등)을 스스로 할 수 있도록 돕는 치료**입니다. 🖐")
 
-    st.subheader("📌 작업치료 효과")
+    st.subheader("✨ 작업치료 효과")
     st.markdown("""
     - ✅ 일상생활 자립 능력 향상 (옷 입기, 식사 등)
     - ✅ 인지 기능(기억력, 집중력) 개선
@@ -119,5 +117,5 @@ elif menu == "작업치료":
     - 🏥 **전문 치료 필요 시**: 인지 재활 프로그램, 감각-운동 통합 훈련, 맞춤형 보조도구 활용
     """)
 
-    st.subheader("🎬 작업치료 동영상 예시")
-    st.video("videos/occupational_therapy_demo.mp4")  # 로컬 동영상
+    st.subheader("📚 참고 자료")
+    st.write("작업치료에 대한 자세한 정보는 [한국작업치료사협회](https://www.kota.or.kr/)에서 확인하실 수 있습니다.")
