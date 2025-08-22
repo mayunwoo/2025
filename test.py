@@ -1,69 +1,75 @@
 import streamlit as st
-import random
 
-st.set_page_config(page_title="작업치료 실습 앱", page_icon="🧠", layout="centered")
+st.set_page_config(page_title="보건 웹앱", page_icon="🧑‍⚕️", layout="wide")
 
-st.title("🖐️ 작업치료 실습 웹앱")
-st.write("이 앱은 **작업치료 실습용**으로 일상생활 수행능력 평가, 인지 퀴즈, 재활운동 진행을 체험할 수 있습니다.")
+st.title("🧑‍⚕️ 보건 웹앱: 물리치료 & 작업치료")
+st.write("남녀노소 누구나 쉽게 사용할 수 있는 **보건 교육 & 체험 앱**입니다.")
 
-# ------------------------------
-# 1. ADL 자가 평가
-# ------------------------------
-st.header("1️⃣ 일상생활 수행능력(ADL) 자가 평가")
-questions = [
-    ("옷을 혼자 입을 수 있나요?", ["전혀 못한다", "약간 도움 필요", "완전히 가능"]),
-    ("혼자 식사를 할 수 있나요?", ["전혀 못한다", "약간 도움 필요", "완전히 가능"]),
-    ("혼자 화장실을 갈 수 있나요?", ["전혀 못한다", "약간 도움 필요", "완전히 가능"]),
-    ("혼자 이동할 수 있나요?", ["전혀 못한다", "약간 도움 필요", "완전히 가능"]),
-]
-
-adl_score = 0
-for q, options in questions:
-    choice = st.radio(q, options, key=q)
-    adl_score += options.index(choice)  # 0,1,2 점수 부여
-
-if st.button("ADL 평가 결과 보기"):
-    st.success(f"총 점수: {adl_score} / {len(questions)*2}")
-    if adl_score <= 3:
-        st.write("⚠️ **기능 저하**: 많은 도움이 필요합니다.")
-    elif adl_score <= 6:
-        st.write("🙂 **중간 수준**: 일부 도움이 필요합니다.")
-    else:
-        st.write("💪 **독립적**: 대부분 스스로 가능합니다.")
+# 사이드바 메뉴
+menu = st.sidebar.radio("메뉴 선택", ["홈", "물리치료", "작업치료"])
 
 # ------------------------------
-# 2. 인지 퀴즈 (숫자 기억)
+# 홈
 # ------------------------------
-st.header("2️⃣ 인지 기능 훈련 - 숫자 기억하기")
-if "quiz_numbers" not in st.session_state:
-    st.session_state.quiz_numbers = []
-
-if st.button("새 문제 생성"):
-    st.session_state.quiz_numbers = [random.randint(0,9) for _ in range(5)]
-    st.info("5초 동안 숫자를 외우세요!")
-    st.write(st.session_state.quiz_numbers)
-
-answer = st.text_input("숫자를 입력하세요 (띄어쓰기 없이)")
-if st.button("정답 확인"):
-    correct = "".join(map(str, st.session_state.quiz_numbers))
-    if answer == correct:
-        st.success("정답! 🧠 기억력이 좋습니다!")
-    else:
-        st.error(f"틀렸습니다. 정답은 {correct} 였습니다.")
+if menu == "홈":
+    st.header("🏠 홈")
+    st.write("이 앱은 **물리치료와 작업치료**에 대해 배우고, 간단한 자가 진단과 치료 방법을 확인할 수 있도록 만든 앱입니다.")
+    st.write("👉 왼쪽 메뉴에서 원하는 항목을 선택하세요!")
 
 # ------------------------------
-# 3. 재활 운동 진행률
+# 물리치료
 # ------------------------------
-st.header("3️⃣ 재활 운동 진행률 체크")
-if "exercise_progress" not in st.session_state:
-    st.session_state.exercise_progress = 0
+elif menu == "물리치료":
+    st.header("💪 물리치료(Physiotherapy)")
 
-if st.button("운동 완료 체크 🏃"):
-    if st.session_state.exercise_progress < 100:
-        st.session_state.exercise_progress += 20
-st.progress(st.session_state.exercise_progress)
+    st.subheader("📖 물리치료란?")
+    st.write("물리치료는 통증을 줄이고, 근육과 관절의 기능을 회복시키며, 재활을 돕는 치료 방법입니다. 운동, 전기 자극, 온열 요법 등이 사용됩니다.")
 
-if st.session_state.exercise_progress >= 100:
-    st.balloons()
-    st.success("🎉 오늘의 운동 목표를 달성했습니다!")
+    st.subheader("📝 간단 진단")
+    q1 = st.radio("1. 평소 허리나 무릎 통증이 있나요?", ["없다", "가끔 있다", "자주 있다"])
+    q2 = st.radio("2. 계단을 오르내릴 때 불편함이 있나요?", ["전혀 없다", "약간 있다", "많이 있다"])
 
+    if st.button("물리치료 진단 결과 보기"):
+        score = [q1, q2].count("자주 있다") + [q1, q2].count("많이 있다")
+        if score == 0:
+            st.success("✅ 큰 문제는 없어 보입니다. 건강을 유지하세요!")
+        elif score == 1:
+            st.warning("⚠️ 약간의 불편이 있습니다. 꾸준한 스트레칭과 운동이 필요합니다.")
+        else:
+            st.error("❗ 통증 관리가 필요합니다. 전문가 상담을 권장합니다.")
+
+    st.subheader("💡 치료 방법")
+    st.markdown("""
+    - 스트레칭: 허리, 무릎, 어깨 스트레칭을 매일 10분 하기
+    - 근력 운동: 가벼운 아령, 밴드 운동
+    - 생활 습관: 올바른 자세 유지, 장시간 앉아 있지 않기
+    """)
+
+# ------------------------------
+# 작업치료
+# ------------------------------
+elif menu == "작업치료":
+    st.header("🎨 작업치료(Occupational Therapy)")
+
+    st.subheader("📖 작업치료란?")
+    st.write("작업치료는 일상생활에서 필요한 활동(옷 입기, 식사, 글쓰기 등)을 스스로 할 수 있도록 돕는 치료입니다. 또한 인지 기능과 정신 건강 향상에도 도움을 줍니다.")
+
+    st.subheader("📝 간단 진단")
+    q1 = st.radio("1. 혼자 옷을 입는 것이 어렵나요?", ["전혀 어렵지 않다", "가끔 어렵다", "매우 어렵다"])
+    q2 = st.radio("2. 최근 기억한 내용을 잘 잊는 편인가요?", ["아니다", "가끔 그렇다", "자주 그렇다"])
+
+    if st.button("작업치료 진단 결과 보기"):
+        score = [q1, q2].count("매우 어렵다") + [q1, q2].count("자주 그렇다")
+        if score == 0:
+            st.success("✅ 큰 문제는 없어 보입니다. 일상생활을 잘 유지하고 있습니다.")
+        elif score == 1:
+            st.warning("⚠️ 일부 어려움이 있습니다. 간단한 훈련이 도움이 될 수 있습니다.")
+        else:
+            st.error("❗ 일상생활에 불편이 큽니다. 작업치료사의 평가가 필요합니다.")
+
+    st.subheader("💡 치료 방법")
+    st.markdown("""
+    - 손 운동: 작은 물건 집기, 공 굴리기
+    - 인지 훈련: 퍼즐 맞추기, 숫자 기억하기
+    - 생활 훈련: 식사 준비, 집안일 따라하기
+    """)
