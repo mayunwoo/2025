@@ -1,9 +1,10 @@
 import streamlit as st
 
-st.set_page_config(page_title="보건 웹앱", page_icon="🧑‍⚕️", layout="wide")
+# 페이지 설정
+st.set_page_config(page_title="누구나 쉽게 할 수 있는 자가진단", page_icon="🧑‍⚕️", layout="wide")
 
 # 앱 제목
-st.title("🧑‍⚕️ 보건 웹앱: 물리치료 & 작업치료")
+st.title("🧑‍⚕️ 누구나 쉽게 할 수 있는 자가진단")
 st.write("남녀노소 누구나 쉽게 사용할 수 있는 **보건 교육 & 체험 앱**입니다.")
 st.write("👵👴 할머니, 할아버지도 편하게 보고, 학생들도 공부할 수 있도록 만들었어요!")
 
@@ -66,9 +67,15 @@ elif menu == "물리치료":
     - 🏥 **전문 치료 필요 시**: 온열 요법, 전기 자극치료, 초음파 치료 등
     """)
 
+    # ▶ 영상/그림으로 바로 보기 (국내 영상으로 교체)
+    st.subheader("🎥 물리치료 운동 영상")
+    st.video("https://www.youtube.com/watch?v=E6Ng7Z6YrF8")  # 서울대병원 물리치료 스트레칭 영상
+
+    st.subheader("🖼 물리치료 참고 이미지")
+    st.image("https://www.kpta.or.kr/site/kpta/images/sub/sub0101_img01.jpg", caption="대한물리치료사협회 자료")
+
     st.subheader("📚 참고 자료")
-    # ✅ 공식 홈페이지로 바로잡은 링크
-    st.write("물리치료에 대한 자세한 정보는 [대한물리치료사협회](https://www.kpta.co.kr/)에서 확인하실 수 있습니다.")
+    st.write("👉 [대한물리치료사협회 바로가기](https://www.kpta.or.kr/)")
 
 # ------------------------------
 # 작업치료
@@ -118,6 +125,12 @@ elif menu == "작업치료":
     - 🏥 **전문 치료 필요 시**: 인지 재활 프로그램, 감각-운동 통합 훈련, 맞춤형 보조도구 활용
     """)
 
+    # ▶ 영상/그림으로 바로 보기 (국내 영상으로 교체)
+    st.subheader("🎥 작업치료 훈련 영상")
+    st.video("https://www.youtube.com/watch?v=FfwnhEXwjDU")  # 국립재활원 작업치료 소개 영상
+
+    st.subheader("🖼 작업치료 참고 이미지")
+    st.image("https://www.kota.or.kr/Upfiles/banner/202106151154517792.png", caption="대한작업치료사협회 자료")
+
     st.subheader("📚 참고 자료")
-    # ✅ 공식 홈페이지로 바로잡은 링크
-    st.write("작업치료에 대한 자세한 정보는 [(사)대한작업치료사협회](https://www.kaot.org/)에서 확인하실 수 있습니다.")
+    st.write("👉 [대한작업치료사협회 바로가기](https://www.kota.or.kr/)")
