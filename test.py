@@ -86,11 +86,11 @@ elif menu == "자가진단":
 """
         }
 
-        # 아코디언: 증상 상세
+        # 증상 상세 아코디언
         with st.expander("증상 상세 정보"):
             st.info(symptom_detail[symptom])
 
-        # 아코디언: 추천 운동
+        # 추천 운동 아코디언
         symptom_exercise = {
             "두통": "목 스트레칭, 어깨/목 근육 이완 운동, 가벼운 산책",
             "기침": "폐활량 늘리기 위한 심호흡 운동, 가벼운 스트레칭",
@@ -104,7 +104,7 @@ elif menu == "자가진단":
         with st.expander("추천 운동"):
             st.write(symptom_exercise.get(symptom, "정보 없음"))
 
-        # 아코디언: 추천 약품
+        # 추천 약품 아코디언
         symptom_drug = {
             "두통": ["타이레놀", "이부프로펜", "진통제"],
             "기침": ["진해거담제", "항히스타민제"],
