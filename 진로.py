@@ -25,14 +25,108 @@ st.markdown("""
 background:
 linear-gradient(
 135deg,
-#F5FCFF,
-#E1F5FE,
-#D7F3FF,
-#FFFFFF
+#EAF8FF,
+#D9F3FF,
+#F7FDFF
 );
+
+overflow:hidden;
 
 }
 
+
+/* 배경 원 효과 */
+
+.stApp:before{
+
+content:"";
+
+position:fixed;
+
+width:250px;
+
+height:250px;
+
+background:#BDEBFF;
+
+border-radius:50%;
+
+top:10%;
+
+left:5%;
+
+opacity:0.35;
+
+animation:move1 10s infinite alternate;
+
+z-index:-1;
+
+}
+
+
+.stApp:after{
+
+content:"";
+
+position:fixed;
+
+width:350px;
+
+height:350px;
+
+background:#90E0EF;
+
+border-radius:50%;
+
+bottom:5%;
+
+right:5%;
+
+opacity:0.25;
+
+animation:move2 12s infinite alternate;
+
+z-index:-1;
+
+}
+
+
+
+@keyframes move1{
+
+from{
+
+transform:translateY(0px);
+
+}
+
+
+to{
+
+transform:translateY(80px);
+
+}
+
+}
+
+
+
+@keyframes move2{
+
+from{
+
+transform:translateY(0px);
+
+}
+
+
+to{
+
+transform:translateY(-100px);
+
+}
+
+}
 
 /* 화면 여백 */
 
@@ -192,29 +286,24 @@ unsafe_allow_html=True)
 
 
 st.markdown("""
-# 🌐 진로메타버스
+<h1>
+🌐 진로메타버스
+</h1>
 
-## 🧠 작업치료학과 진로 탐색
+<p style="
+text-align:center;
+font-size:22px;
+color:#0077B6;
+font-weight:600;
+">
+작업치료학과 진로 탐색
+</p>
 
-### "사람의 일상을 회복시키는 전문가"
-
-
-작업치료학과에서는 무엇을 배우고,
-졸업 후 어떤 분야에서 활동할 수 있을까요?
-
-이 웹사이트를 통해 작업치료의 의미,
-진로 방향, 필요한 역량과 전망까지
-탐색해보세요.
-""")
+""", unsafe_allow_html=True)
 
 
-
-st.info(
-"""
-💡 아래의 항목을 클릭하여
-작업치료학과에 대해 알아보세요.
-"""
-)
+st.write("")
+st.write("")
 
 
 st.divider()
